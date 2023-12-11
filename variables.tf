@@ -3,28 +3,26 @@ variable "name" {
 }
 
 variable "type" {
-  type = string
+  type    = string
   default = "A"
 }
 
 variable "records" {
-  type = list(string)
+  type    = list(string)
   default = []
 }
 
-
 variable "ttl" {
-  type = number
+  type    = number
   default = 300
 }
 
-variable "route53_zone" {
-  type = object({
-    name = string
-    id = string
-  })
-}
+variable "zone_id" {}
 
 variable "alias" {
+  type = object({
+    evaluate_target_health = optional(bool, false)
+    name                   = string
+  })
   default = null
 }
