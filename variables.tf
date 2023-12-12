@@ -23,6 +23,7 @@ variable "alias" {
   type = object({
     evaluate_target_health = optional(bool, false)
     name                   = string
+    zone_id = string
   })
   default = null
 }
